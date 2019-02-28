@@ -83,7 +83,7 @@ class BaseImage:
                 else:
                     self.host = 'localhost'
 
-            print(self.host)
+            print('host', self.host)
             if self.host != '':
                 opened = self.check()
         if not opened:
