@@ -22,15 +22,13 @@ class Minio(BaseImage):
                 'MINIO_ACCESS_KEY': 'x' * 10,
                 'MINIO_SECRET_KEY': 'x' * 10,
             },
-            publish_all_ports=False,
-            ports={
-                '9000/tcp': '19000'
-            }
+            publish_all_ports=False
         ))
         return image_options
 
     def check(self):
         url = f'http://{self.host}:{self.get_port()}/'
+        print(url)
         try:
             resp = requests.options(url)
             if resp.status_code == 200:
